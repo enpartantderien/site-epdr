@@ -1,0 +1,7 @@
+{
+  "name": "En partant de rien CM - Community Management & AI Studio",
+  "description": "Un portfolio haut de gamme inspiré par Apple pour les services de community management 'En partant de rien CM', comprenant un laboratoire d'édition d'images propulsé par l'IA Gemini.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
