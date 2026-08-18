@@ -61,14 +61,14 @@ const Testimonials: React.FC = () => {
   }, [nextSlide, currentIndex]);
 
   return (
-    <section id="témoignages" className="py-32 bg-black overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="mb-20 text-center">
-          <p className="accent-text font-black tracking-[0.3em] text-xs mb-4 uppercase">Témoignages</p>
-          <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-4 uppercase">ILS BÂTISSENT LEUR <br/> <span className="text-violet-500">EMPIRE</span> AVEC NOUS.</h2>
+    <section id="témoignages" className="py-20 bg-black overflow-hidden">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+        <div className="mb-12 text-center">
+          <p className="accent-text font-black tracking-[0.3em] text-[10px] mb-3 uppercase">Témoignages</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tighter mb-4 uppercase">ILS BÂTISSENT LEUR <br/> <span className="text-violet-500">EMPIRE</span> AVEC NOUS.</h2>
         </div>
 
-        <div className="relative max-w-[1000px] mx-auto">
+        <div className="relative max-w-[800px] mx-auto">
           <button 
             onClick={prevSlide}
             className="absolute -left-4 lg:-left-20 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-black border border-white/10 rounded-full text-white/50 hover:text-violet-500 hover:border-violet-500 transition-all active:scale-90"
@@ -96,20 +96,21 @@ const Testimonials: React.FC = () => {
             >
               {testimonials.map((t, i) => (
                 <div key={i} className="w-full shrink-0 group">
-                  <div className="bg-black p-10 md:p-20 border border-white/5 rounded-sm flex flex-col items-center text-center relative overflow-hidden mx-2">
-                    <div className="relative z-10 w-28 h-28 md:w-44 md:h-44 mb-10 rounded-sm overflow-hidden border border-white/10 group-hover:border-violet-500/50 transition-all duration-700 bg-zinc-950 shadow-2xl">
+                  <div className="bg-black p-8 md:p-14 border border-white/5 rounded-sm flex flex-col items-center text-center relative overflow-hidden mx-2">
+                    <div className="relative z-10 w-20 h-20 md:w-32 md:h-32 mb-8 rounded-sm overflow-hidden border border-white/10 group-hover:border-violet-500/50 transition-all duration-700 bg-zinc-950 shadow-2xl">
                       <img 
                         src={t.image} 
                         alt={t.name} 
+                        referrerPolicy="no-referrer"
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-110"
                       />
                     </div>
-                    <div className="flex-1 relative z-10 max-w-2xl">
-                      <div className="mb-8">
-                        <div className="font-black text-base md:text-lg tracking-widest text-white uppercase">{t.name}</div>
+                    <div className="flex-1 relative z-10 max-w-xl">
+                      <div className="mb-6">
+                        <div className="font-black text-sm md:text-base tracking-widest text-white uppercase">{t.name}</div>
                       </div>
-                      <div className="accent-text text-5xl md:text-7xl mb-1 opacity-10 font-serif leading-none h-10 select-none group-hover:opacity-20 transition-opacity">“</div>
-                      <p className="text-lg md:text-2xl lg:text-3xl text-white/90 leading-snug font-medium italic tracking-tight mb-4 px-4 md:px-0">
+                      <div className="accent-text text-4xl md:text-6xl mb-1 opacity-10 font-serif leading-none h-8 select-none group-hover:opacity-20 transition-opacity">“</div>
+                      <p className="text-base md:text-xl lg:text-2xl text-white/90 leading-snug font-medium italic tracking-tight mb-4 px-4 md:px-0">
                         {t.quote}
                       </p>
                     </div>
@@ -118,7 +119,7 @@ const Testimonials: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="mt-12 flex justify-center gap-3">
+          <div className="mt-8 flex justify-center gap-3">
             {testimonials.map((_, i) => (
               <button
                 key={i}

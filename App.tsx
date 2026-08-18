@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import Services from './components/Services';
+import Offers from './components/Offers';
 import Portfolio, { projectsData } from './components/Portfolio';
 import PortfolioGrid from './components/PortfolioGrid';
 import Testimonials from './components/Testimonials';
@@ -95,16 +95,16 @@ const App: React.FC = () => {
                 <Hero />
               </div>
 
-              {/* 1. SECTION SERVICES */}
-              <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-1000">
-                <Services />
-              </div>
-              
-              {/* 2. SECTION RÉALISATIONS (PORTFOLIO) */}
+              {/* 1. SECTION RÉALISATIONS (PORTFOLIO) */}
               <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-1000">
                 <Portfolio 
                   onSelectProject={handleSelectProject} 
                 />
+              </div>
+
+              {/* OFFRES (New) */}
+              <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-1000">
+                <Offers />
               </div>
 
               {/* 3. SECTION À PROPOS */}

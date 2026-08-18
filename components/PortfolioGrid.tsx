@@ -69,13 +69,6 @@ const PortfolioGrid: React.FC<PortfolioGridProps> = ({ onSelectProject, onBack }
                   className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all"></div>
-                
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="bg-white text-black p-4 text-center text-[10px] font-black tracking-[0.3em] uppercase transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                    DÉCOUVRIR LE CASE STUDY
-                  </div>
-                </div>
               </div>
               
               <div className="space-y-2">

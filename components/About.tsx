@@ -6,14 +6,12 @@ const About: React.FC = () => {
     {
       name: "MATTEO",
       role: "MOTION & STRATEGY",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
-      description: "Il insuffle la vie à votre contenu. Expert en montage vidéo et réalisation de Reels, il définit la stratégie globale pour transformer votre visibilité en résultats concrets et mesurables."
+      image: "https://i.ibb.co/DPdFp4nL/de492a6f-6b46-4274-a0eb-faac8527d52e.jpg",
     },
     {
       name: "THOMAS",
       role: "IDENTITY & STORYTELLING",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
-      description: "Il façonne votre ADN visuel. De la création de votre charte graphique à la rédaction de vos posts, il donne une âme à votre marque et raconte votre histoire pour captiver votre audience."
+      image: "https://i.ibb.co/DPdFp4nL/de492a6f-6b46-4274-a0eb-faac8527d52e.jpg",
     }
   ];
 
@@ -29,29 +27,27 @@ const About: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="group flex flex-col">
-                <div className="relative aspect-[4/5] mb-8 overflow-hidden rounded-sm bg-zinc-900">
-                  <img 
-                    src={member.image} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
-                    alt={member.name}
-                  />
-                  <div className="absolute inset-0 border border-white/5 group-hover:border-violet-500/30 transition-colors duration-500"></div>
-                </div>
-                <div className="space-y-2">
+          <div className="flex flex-col">
+            <div className="relative aspect-[4/3] mb-8 overflow-hidden rounded-sm bg-zinc-900 group">
+              <img 
+                src="https://i.ibb.co/DPdFp4nL/de492a6f-6b46-4274-a0eb-faac8527d52e.jpg" 
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
+                alt="L'équipe En Partant De Rien CM"
+              />
+              <div className="absolute inset-0 border border-white/5 group-hover:border-violet-500/30 transition-colors duration-500"></div>
+            </div>
+            <div className="flex flex-wrap gap-12">
+              {team.map((member, index) => (
+                <div key={index} className="space-y-2">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-px bg-violet-500"></div>
                     <h3 className="text-xl font-black tracking-tighter uppercase">{member.name}</h3>
                   </div>
                   <p className="text-[10px] font-black tracking-widest text-violet-500 uppercase">{member.role}</p>
-                  <p className="text-sm text-white/40 leading-relaxed font-medium uppercase mt-4">
-                    {member.description}
-                  </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
         </p>
         
         {/* Titre : Reste en haut */}
-        <div className="mb-4 md:mb-14 animate-reveal" style={{ animationDelay: '0.2s' }}>
+        <div className="mb-2 md:mb-8 animate-reveal" style={{ animationDelay: '0.2s' }}>
           <h1 className="font-black hero-title uppercase flex flex-col items-center">
             <span className="text-[18px] sm:text-[24px] md:text-[45px] lg:text-[60px] leading-[1.2] text-white tracking-tight whitespace-nowrap">
               CRÉEZ VOTRE EMPIRE DIGITAL
@@ -41,23 +41,23 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Description : mt-16 sur mobile pour descendre ce bloc par rapport au titre */}
-        <div className="mt-16 md:mt-0 animate-reveal" style={{ animationDelay: '0.4s' }}>
-          <p className="text-[9px] md:text-sm text-white/40 max-w-lg mx-auto mb-8 md:mb-24 font-medium leading-relaxed uppercase tracking-[0.25em]">
+        <div className="mt-8 md:mt-0 animate-reveal" style={{ animationDelay: '0.4s' }}>
+                  <p className="text-[9px] md:text-sm text-white/40 max-w-lg mx-auto mb-6 md:mb-12 font-medium leading-relaxed uppercase tracking-[0.25em]">
             De la stratégie éditoriale à la création de contenu, nous bâtissons une communauté engagée autour de vos valeurs.
           </p>
-        </div>
+</div>
 
         {/* Boutons - Suivent le mouvement vers le bas */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 animate-reveal w-full sm:w-auto mb-4" style={{ animationDelay: '0.6s' }}>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 md:px-16 md:py-7 bg-violet-600 text-white font-black tracking-[0.2em] rounded-sm hover:bg-violet-700 transition-all text-[10px] md:text-[13px] w-full sm:w-auto shadow-xl shadow-violet-900/10"
+            className="px-6 py-3 md:px-10 md:py-4 bg-violet-600 text-white font-black tracking-[0.2em] rounded-sm hover:bg-violet-700 transition-all text-[9px] md:text-[11px] w-full sm:w-auto shadow-xl shadow-violet-900/10"
           >
             PASSER À L'ACTION
           </button>
           <button 
              onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 md:px-16 md:py-7 border border-white/10 text-white font-black tracking-[0.2em] rounded-sm hover:bg-white hover:text-black transition-all text-[10px] md:text-[13px] w-full sm:w-auto bg-black"
+            className="px-6 py-3 md:px-10 md:py-4 border border-white/10 text-white font-black tracking-[0.2em] rounded-sm hover:bg-white hover:text-black transition-all text-[9px] md:text-[11px] w-full sm:w-auto bg-black"
           >
             NOS RÉALISATIONS
           </button>

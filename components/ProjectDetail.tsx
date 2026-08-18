@@ -1,6 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import { CaseStudy } from '../types';
 
+const servicesData = [
+  {
+    title: "STRATÉGIE & IDENTITÉ",
+    desc: "Nous coconstruisons une stratégie sur mesure de votre identité visuelle à la ligne éditoriale, pour que vous soyez reconnaissable au premier coup d'œil.",
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12.99 6.74 1.93 3.44"/>
+        <path d="M19.18 17.52 15.5 11l-2.24-4a2 2 0 0 0-3.52 0L3.06 19.38"/>
+        <path d="m8.5 11 1.93 3.44"/>
+        <path d="M5.3 18h13.4"/>
+        <circle cx="12" cy="5" r="2"/>
+      </svg>
+    )
+  },
+  {
+    title: "CRÉATION DE CONTENU PREMIUM",
+    desc: "Photos, vidéos (Reels), stories et rédactions percutantes. Nous produisons le carburant qui fait vivre vos réseaux.",
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/>
+      </svg>
+    )
+  },
+  {
+    title: "COMMUNITY MANAGEMENT",
+    desc: "Gestion quotidienne, modération et engagement pour faire battre le cœur de votre communauté.",
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    )
+  },
+  {
+    title: "REPORTING",
+    desc: "Analyse détaillée des performances chaque mois pour ajuster la stratégie et maximiser votre ROI.",
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
+      </svg>
+    )
+  }
+];
+
 interface ProjectDetailProps {
   project: CaseStudy;
   onBack: () => void;
@@ -66,6 +110,36 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack, onNext }
              </div>
           </div>
 
+      {/* Section Expertise pour Community Management */}
+      {project.id === 'immobilier' && (
+        <section className="py-24 bg-zinc-950/30 border-y border-white/5">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="mb-16">
+              <p className="accent-text font-black tracking-[0.3em] text-[10px] mb-4 uppercase">Notre Expertise</p>
+              <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9]">
+                LES PILIERS DE NOTRE <br/> <span className="text-violet-500">ACCOMPAGNEMENT</span>
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5">
+              {servicesData.map((service, idx) => (
+                <div 
+                  key={idx}
+                  className="bg-black p-10 hover:bg-zinc-950 transition-all group flex flex-col justify-center min-h-[300px]"
+                >
+                  <div className="text-violet-500 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-black mb-4 tracking-tight uppercase">{service.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed group-hover:text-white/60 transition-colors">
+                    {service.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
           <div className="mb-20">
             <p className="accent-text font-black tracking-[0.3em] text-[10px] mb-4 uppercase">Étude de cas</p>
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9]">
@@ -74,22 +148,24 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack, onNext }
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-24">
-            <div className="lg:col-span-8 space-y-20">
-              <div>
-                <h2 className="text-[10px] font-black tracking-[0.4em] accent-text uppercase mb-10">Le Challenge</h2>
-                <p className="text-2xl md:text-3xl font-bold leading-tight text-white/90">
-                  {project.challenge || "Définir une présence numérique impactante et cohérente."}
-                </p>
-              </div>
+            <div className="lg:col-span-12 space-y-20">
+              {/* Vidéo horizontale spécifique pour Podcast Régie */}
+              {project.id === 'podcast-regie' && (
+                <div className="relative w-full aspect-video bg-zinc-950 border border-violet-500/30 rounded-xl overflow-hidden shadow-2xl shadow-violet-500/10">
+                  <iframe
+                    src="https://player.vimeo.com/video/1166634468?badge=0&autopause=0&player_id=0&app_id=58479&color=8b5cf6&title=0&byline=0&portrait=0"
+                    className="absolute inset-0 w-full h-full"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title="Démonstration Régie Podcast"
+                  ></iframe>
+                </div>
+              )}
 
               <div>
-                <h2 className="text-[10px] font-black tracking-[0.4em] accent-text uppercase mb-10">Notre Approche</h2>
-                <p className="text-lg text-white/60 leading-relaxed font-medium mb-12">
-                  {project.solution || "Nous avons privilégié une approche immersive, capturant l'essence du métier et les coulisses pour créer un lien authentique avec l'audience."}
-                </p>
-
                 {videos.length > 0 && (
-                  <div className="mt-20 flex flex-col items-center">
+                  <div className="flex flex-col items-center mt-20">
                     <div className="relative w-full max-w-[420px] group">
                       {videos.length > 1 && (
                         <>
@@ -143,70 +219,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack, onNext }
                 )}
               </div>
             </div>
-
-            <div className="lg:col-span-4 lg:border-l border-white/5 lg:pl-12 space-y-16">
-              <div>
-                <h3 className="text-[10px] font-black tracking-[0.4em] text-white/40 uppercase mb-8">Livrables</h3>
-                <ul className="space-y-4 text-xs font-bold tracking-widest uppercase text-white/80">
-                  {project.deliverables && project.deliverables.length > 0 ? (
-                    project.deliverables.map((item, idx) => (
-                      <li key={idx}>● {item}</li>
-                    ))
-                  ) : (
-                    <>
-                      <li>● Stratégie Multicanale</li>
-                      <li>● Production Vidéo Haute Qualité</li>
-                      <li>● Création Graphique</li>
-                      <li>● Post-Production</li>
-                      <li>● Analyse de Performance</li>
-                    </>
-                  )}
-                </ul>
-              </div>
-
-              {project.results && project.results.length > 0 && (
-                <div>
-                  <div className="mb-8">
-                    <h3 className="text-[10px] font-black tracking-[0.4em] text-white/40 uppercase mb-2">Impact Direct</h3>
-                    <p className="text-[9px] font-black tracking-widest text-violet-500 uppercase">Résultats constatés</p>
-                  </div>
-                  <div className="space-y-8">
-                    {project.results.map((res, i) => (
-                      <div key={i} className="flex gap-4 items-start">
-                        <div className="w-1.5 h-1.5 rounded-full bg-violet-600 mt-1.5 shrink-0"></div>
-                        <p className="text-sm font-medium text-white/70 uppercase leading-relaxed tracking-tight">{res}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </section>
-
-      {/* Section Spécifique Régie Podcast si applicable */}
-      {project.id === 'podcast-regie' && (
-        <section className="py-24 bg-zinc-950/50">
-          <div className="max-w-[1200px] mx-auto px-6 flex flex-col items-center">
-            <div className="text-center mb-10">
-              <h3 className="text-2xl font-black tracking-tighter uppercase mb-2">Immersion Régie</h3>
-              <div className="w-12 h-1 bg-violet-600 mx-auto"></div>
-            </div>
-
-            <div className="relative w-full max-w-[900px] aspect-video bg-zinc-950 border border-violet-500/30 rounded-xl overflow-hidden shadow-2xl shadow-violet-500/10">
-              <iframe
-                src="https://player.vimeo.com/video/1166634468?badge=0&autopause=0&player_id=0&app_id=58479&color=8b5cf6&title=0&byline=0&portrait=0"
-                className="absolute inset-0 w-full h-full"
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="Démonstration Régie Podcast"
-              ></iframe>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Footer Navigation */}
       <section className="py-32 border-t border-white/5">

@@ -9,9 +9,9 @@ export const projectsData: CaseStudy[] = [
     id: 'immobilier',
     client: 'COMMUNITY MANAGEMENT',
     category: 'PRESTATION MENSUELLE',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop',
+    image: '/src/assets/images/community_management.jpg',
     stats: [{ label: 'clics lien externes', value: '+2.6K' }, { label: 'VUES', value: '+3.5M' }],
-    description: "Le Community Management est l'art de fédérer et d'animer une communauté engagée autour de votre identité. Nous pilotons votre présence digitale de A à Z : de la co-construction d'une stratégie sur-mesure à la production de contenus (tournage et montage), jusqu'à la planification de vos publications. Chaque mois, un reporting détaillé vous permet de mesurer l'impact réel et l'évolution de votre empire numérique.",
+    description: "Le Community Management est l'art de fédérer et d'animer une communauté engagée autour de votre identité. Nous pilotons votre présence digitale de A à Z.",
     challenge: "Déploiement d'un écosystème de contenu conçu pour convertir l'audience sociale en prospects directs au cœur du tunnel de vente.",
     solution: "De la capture spontanée en session de coaching aux conseils techniques sur le terrain, nous scénarisons la réalité du métier pour affirmer l'autorité du coach et convertir son audience par la preuve.",
     results: [
@@ -41,9 +41,9 @@ export const projectsData: CaseStudy[] = [
     id: 'gastro-lab',
     client: 'PRESTATION ONE-SHOT',
     category: 'IMPACT IMMÉDIAT',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop',
+    image: '/src/assets/images/one_shot.jpg',
     stats: [{ label: 'Impact', value: '+35%' }, { label: 'Vues', value: '500K' }],
-    description: "Tournage, montage, livraison. La solution One-Shot est conçue pour ceux qui ont besoin d'un stock de contenus qualitatifs en un temps record. Nous filmons vos moments forts et vous livrons des réels dynamiques et des photos épurées, prêts à l'emploi.",
+    description: "Tournage, montage, livraison. La solution One-Shot est conçue pour ceux qui ont besoin d'un stock de contenus qualitatifs en un temps record.",
     challenge: "Humaniser une PME technique pour la rendre accessible et désirable sur les réseaux sociaux.",
     solution: "Nous avons choisi de filmer l'humain. En interrogeant directement les utilisateurs sur leur usage de l'outil, nous avons créé des réels qui répondent aux vraies questions : comment l'outil transforme leur productivité et quel est leur ressenti sur le terrain. Une stratégie de contenu basée sur la preuve et la confiance.",
     results: [
@@ -56,6 +56,7 @@ export const projectsData: CaseStudy[] = [
       "Pack de 10 réels",
       "Pack de 20 photos"
     ],
+    videoUrl: "https://player.vimeo.com/video/1192809259?badge=0&autopause=0&player_id=0&app_id=58479",
     gallery: [
       'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop'
@@ -143,8 +144,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
     <section id="portfolio" className="py-32 bg-black overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="mb-24">
-          <p className="accent-text font-black tracking-[0.3em] text-xs mb-4 uppercase">Nos Offres & Projets</p>
-          <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9]">NOS OFFRES <br/> <span className="text-violet-500">EXCLUSIVES</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9]">NOS <br/> <span className="text-violet-500">RÉALISATIONS</span></h2>
         </div>
         
         <div className="relative">
@@ -188,13 +188,14 @@ const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
                   <img 
                     src={item.image} 
                     alt={item.client} 
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                   />
                   {/* Dégradé noir plus dense en bas pour assurer le contraste des textes blancs */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* Alignement vertical : on utilise un offset de 100% (caché) avec un translate négatif pour l'état initial */}
-                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end transform translate-y-[calc(100%-80px)] group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
+                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end transform translate-y-[calc(90%-140px)] group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
                     <div className="mb-4">
                       <div className="text-violet-500 text-[10px] font-black tracking-[0.3em] uppercase mb-2 drop-shadow-md">
                         {item.category}
@@ -204,9 +205,6 @@ const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
                       </h3>
                     </div>
                     
-                    <p className="text-white/80 text-[10.5px] mb-6 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150 uppercase leading-relaxed font-medium">
-                      {item.description}
-                    </p>
                     <div className="h-px w-0 group-hover:w-full bg-white transition-all duration-700"></div>
                   </div>
                 </div>
